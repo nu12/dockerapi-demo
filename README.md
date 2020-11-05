@@ -1,24 +1,10 @@
-# README
+# Dockerapi-demo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a companion to my article about `dockerapi` (link coming soon).
 
-Things you may want to cover:
+Build and deploy locally installing Docker, Ruby and Rails or deploy with Docker with the following commands:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```shell
+$ docker build -t dockerapi-demo:latest .
+$ docker run -d -p 3000:3000 --name=dockerapi-demo -v /var/run/docker.sock:/var/run/docker.sock dockerapi-demo:latest
+```
