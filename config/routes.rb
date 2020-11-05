@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: "image#index"
+  resources :image,     only: [:index, :new, :create, :destroy]
+  resources :container, only: [:index, :new, :create, :destroy]
+  get "/container/start/:id", to: "container#start"
+  get "/container/stop/:id", to: "container#stop"
 end

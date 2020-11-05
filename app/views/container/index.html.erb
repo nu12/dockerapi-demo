@@ -1,0 +1,27 @@
+<h1>All Containers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Image</th>
+      <th>State</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @containers.each do |container| %>
+    <% container_name = container["Names"][0] %>
+    <% container_name[0] = '' %>
+    <% container_id = container['Id'] %>
+      <tr>
+        <td><%= container_name %></td>
+        <td><%= container["Image"] %></td>
+        <td><%= container["State"] %></td>
+        <td><%= link_to 'Start', "/container/start/#{container_id}" %></td>
+        <td><%= link_to 'Stop', "/container/stop/#{container_id}" %></td>
+        <td><%= link_to 'Delete', container_path(container_name), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

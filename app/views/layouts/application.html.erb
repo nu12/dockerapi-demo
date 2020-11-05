@@ -10,6 +10,10 @@
   </head>
 
   <body>
+  <%= link_to "All images", image_index_path %>
+  <%= link_to "Pull image", new_image_path %>
+  <%= link_to "All containers", container_index_path %>
+  <%= link_to "New container", new_container_path %>
     <%= yield %>
   </body>
 </html>

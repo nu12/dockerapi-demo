@@ -1,0 +1,23 @@
+<h1>New Container</h1>
+
+<%= form_with(url: "/container", method: "post", local: true) do |form| %>
+  
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.select :image, options_for_select(@images, @images.first) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :host_config %>
+    <%= form.text_area :host_config %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
