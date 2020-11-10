@@ -2,11 +2,12 @@ class ContainerController < ApplicationController
   before_action :set_container, except: [:new]
   def index
     @containers = @container.list(all: true).json
+    @containers.map { | c | c["Name"] = c["Names"][0].gsub("/", "") }
   end
 
   def new
-    api = Docker::API::Image.new
-    response = api.list
+    image = Docker::API::Image.new
+    response = image.list
     @images = response.json.map{ | r | r["RepoTags"][0] }
   end
 

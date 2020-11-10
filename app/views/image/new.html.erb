@@ -1,17 +1,17 @@
 <h1>Pull Image</h1>
 <%= form_with(url: "/image", method: "post", local: true) do |form| %>
   
-  <div class="field">
+  <div class="form-group">
     <%= form.label :repo %>
-    <%= form.text_field :repo %>
+    <%= form.text_field :repo, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :tag %>
-    <%= form.text_field :tag %>
+    <%= form.text_field :tag, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Pull", class:"btn btn-primary form-control" %>
   </div>
 <% end %>

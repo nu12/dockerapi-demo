@@ -2,22 +2,22 @@
 
 <%= form_with(url: "/container", method: "post", local: true) do |form| %>
   
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :image %>
-    <%= form.select :image, options_for_select(@images, @images.first) %>
+    <%= form.select :image, options_for_select(@images, @images.first), {}, {class: "form-control"} %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :host_config %>
-    <%= form.text_area :host_config %>
+    <%= form.text_area :host_config, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create", class: "btn btn-primary form-control" %>
   </div>
 <% end %>

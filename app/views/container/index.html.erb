@@ -1,6 +1,6 @@
 <h1>All Containers</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -11,16 +11,13 @@
   </thead>
   <tbody>
     <% @containers.each do |container| %>
-    <% container_name = container["Names"][0] %>
-    <% container_name[0] = '' %>
-    <% container_id = container['Id'] %>
       <tr>
-        <td><%= container_name %></td>
+        <td><%= container["Name"] %></td>
         <td><%= container["Image"] %></td>
         <td><%= container["State"] %></td>
-        <td><%= link_to 'Start', "/container/start/#{container_id}" %></td>
-        <td><%= link_to 'Stop', "/container/stop/#{container_id}" %></td>
-        <td><%= link_to 'Delete', container_path(container_name), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Start', "/container/start/#{container['Id']}" %></td>
+        <td><%= link_to 'Stop', "/container/stop/#{container['Id']}" %></td>
+        <td><%= link_to 'Delete', container_path(container["Name"]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
